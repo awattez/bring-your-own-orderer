@@ -9,9 +9,11 @@ docker exec cli-org2 sh -c 'peer channel fetch 0 ${CHANNEL_NAME}_genesis.block -
 
 docker exec cli-org2 sh -c 'peer channel join -b ${CHANNEL_NAME}_genesis.block'
 
+echo "Installing chaincode.."
 docker exec cli-org2 peer chaincode install -n chaincode1 -p github.com/chaincode1 -v 1
 
-sleep 5
+echo "Sleeping for 8 seconds before continuing .."
+sleep 8
 docker exec cli-org2 sh -c 'peer chaincode query -C $CHANNEL_NAME -n chaincode1 -c "{\"Args\":[\"query\",\"v\"]}"'
 
 sleep 2

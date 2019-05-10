@@ -40,7 +40,7 @@ docker exec -e "WORKING_DIR=$WORKING_DIR" -e "CHANNEL=$CHANNEL" cli-org1 sh -c '
 retrieve_updated_config $WORKING_DIR $CHANNEL cli-org1
 
 echo "Copying updated config block.."
-docker exec -e "WORKING_DIR=$WORKING_DIR" cli-org1 sh -c 'cp $WORKING_DIR/updated_config.pb /config/latest_config.block'
+docker exec -e "WORKING_DIR=$WORKING_DIR" -e "CHANNEL=$CHANNEL" cli-org1 sh -c 'cp $WORKING_DIR/updated_config.pb /config/latest_config_$CHANNEL.block'
 
 echo "Done!!"
 
