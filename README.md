@@ -57,8 +57,6 @@ docker-compose up -d orderer0.org2.example.com
 ./add_org2_orderer_to_consenter_list.sh channel1
 ```
 
-Issue here: need to copy `channel1` ledger manually, else `orderer0.org2.example.com` will not know it is supposed to serve channel1
-
 ```bash
 ./add_org2_orderer_address_to_address_list.sh channel1
 ```
