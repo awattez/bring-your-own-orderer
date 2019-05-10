@@ -16,3 +16,4 @@ ca-config/*/*/*.db
 ca-config/*/*/*Key
 ca-config/*/*/*.pem
 downloads/
+ledger/

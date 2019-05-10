@@ -15,5 +15,6 @@ rm -rf ca-config/org2/tlsca/msp ca-config/org2/tlsca/*.pem ca-config/org2/tlsca/
 
 rm -rf downloads
 rm -rf config
+rm -rf ledger
 
 echo "Done!!"

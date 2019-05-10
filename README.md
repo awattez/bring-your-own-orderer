@@ -7,7 +7,7 @@ curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.1 -d -s
 rm -f config/configtx.yaml config/core.yaml config/orderer.yaml
 ```
 
-Start Org1 CA and generate key and certs for Org1 (if there is `Error: Response from server: Error Code: 20 - Authentication failure` error, run `./stop.sh` and try again)
+Start Org1 CA and generate key and certs for Org1
 
 ```bash
 ./create_crypto.sh org1
@@ -57,6 +57,20 @@ docker-compose up -d orderer0.org2.example.com
 ./add_org2_orderer_to_consenter_list.sh channel1
 ```
 
+Issue here: need to copy `channel1` ledger manually, else `orderer0.org2.example.com` will not know it is supposed to serve channel1
+
 ```bash
 ./add_org2_orderer_address_to_address_list.sh channel1
+```
+
+```bash
+docker-compose up -d peer0.org2.example.com
+```
+
+```bash
+./add_org2_anchor_peer.sh channel1
+```
+
+```bash
+./org2_joinchannel_runchaincode.sh
 ```
