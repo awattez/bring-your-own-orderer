@@ -1,11 +1,10 @@
-#!/bin/bash
+#!/bin/bash -ex
 #
 # Copyright IBM Corp All Rights Reserved
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
-set -e
 source utils.sh
 
 if [ "$1" == "" ]; then

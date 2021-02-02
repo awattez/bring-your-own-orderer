@@ -37,7 +37,7 @@
 #############################################################################
 
 # Version of config file
-version: 1.4.1
+version: 1.4.9
 
 # Server's listening port (default: 7054)
 port: 7054
@@ -305,7 +305,7 @@ signing:
 #     CA certificates though it can still issue end entity certificates.
 ###########################################################################
 csr:
-   cn: ca.org2.example.com
+   cn: ca.org1.example.com
    keyrequest:
      algo: ecdsa
      size: 256
@@ -313,10 +313,10 @@ csr:
       - C: SG
         ST: Singapore
         L: Singapore
-        O: org2.example.com
+        O: org1.example.com
         OU:
    hosts:
-     - ca.org2.example.com
+     - ca.org1.example.com
      - localhost
    ca:
       expiry: 131400h

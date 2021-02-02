@@ -1,15 +1,14 @@
-#!/bin/sh
+#!/bin/sh -ex
 
-set -e
 
 export PATH=${PWD}/bin:$PATH
 export FABRIC_CFG_PATH=${PWD}
 
 read -p "Press [Enter] key to continue..."
-docker exec cli-org2 sh -c 'peer channel fetch 0 ${CHANNEL_NAME}_genesis.block -o $ORDERER --tls --cafile $ORDERER_CA_TLS_CERT -c $CHANNEL_NAME'
+docker exec peer0.org2.example.com sh -c 'peer channel fetch 0 channel1_genesis.block -o orderer0.org2.example.com:7050 --tls --cafile /etc/hyperledger/fabric/tls/ca.crt -c channel1'
 
 read -p "Press [Enter] key to continue..."
-docker exec cli-org2 sh -c 'peer channel join -b ${CHANNEL_NAME}_genesis.block'
+docker exec peer0.org2.example.com sh -c 'peer channel join -b channel1_genesis.block'
 
 echo "Installing chaincode.."
 read -p "Press [Enter] key to continue..."

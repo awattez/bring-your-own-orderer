@@ -5,7 +5,29 @@
 1. Download binaries for Hyperledger Fabric v1.4.1
 
    ```bash
-   curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.1 -d -s
+   curl -sSL https://bit.ly/2ysbOFE | bash -s
+   hyperledger/fabric-tools             2.3 
+   hyperledger/fabric-tools             2.3.0  
+   hyperledger/fabric-tools             latest 
+   hyperledger/fabric-peer              2.3    
+   hyperledger/fabric-peer              2.3.0  
+   hyperledger/fabric-peer              latest 
+   hyperledger/fabric-orderer           2.3    
+   hyperledger/fabric-orderer           2.3.0  
+   hyperledger/fabric-orderer           latest 
+   hyperledger/fabric-ccenv             2.3    
+   hyperledger/fabric-ccenv             2.3.0  
+   hyperledger/fabric-ccenv             latest 
+   hyperledger/fabric-baseos            2.3    
+   hyperledger/fabric-baseos            2.3.0  
+   hyperledger/fabric-baseos            latest 
+   hyperledger/fabric-ca                1.4    
+   hyperledger/fabric-ca                1.4.9  
+   hyperledger/fabric-ca                latest 
+   ```
+   
+   **Clean**
+   ```bash
    rm -f config/configtx.yaml config/core.yaml config/orderer.yaml
    ```
 
@@ -46,6 +68,10 @@
    ```bash
    ./add_org2_orderer_to_consenter_list.sh system-channel
    ```
+> If you try step3 before step1
+> `[grpc] InfoDepth -> DEBU 02f [core]Channel Connectivity change to READY
+Error: got unexpected status: BAD_REQUEST -- error applying config update to existing channel 'system-channel': consensus metadata update for channel config update is invalid: invalid new config metadata: verifying tls client cert with serial number 251895756776373017740243883290920663310755872594: x509: certificate signed by unknown authority`
+
 
 4. Start Org2 Orderer
 
@@ -93,11 +119,6 @@
    docker-compose up -d peer0.org2.example.com
    ```
 
-2. Set anchor peer for Org2
-
-   ```bash
-   ./add_org2_anchor_peer.sh channel1
-   ```
 
 3. Join channel and run chaincode
 

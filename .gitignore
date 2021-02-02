@@ -1,19 +1,36 @@
+# Fabric binaries
 bin/
 rca/
+# Crypto Materials
 crypto-config/
+# Genesis block Channel Tx and network config
 config/*.block
 config/*.tx 
 config/*.json
 config/*.yaml
+# MAC
 .DS_Store
+# chaincode
 chaincode/hyperledger/
-ca-config/*/msp
+chaincode/chaincode-java/.gradle
+chaincode/chaincode-java/build
+# Fabric-CA config
+# FIXME
+ca/*/msp
 ca-config/*/*.db
-ca-config/*/*Key
+ca/*/*Key
 ca-config/*/*.pem
-ca-config/*/*/msp
-ca-config/*/*/*.db
-ca-config/*/*/*Key
-ca-config/*/*/*.pem
+ca/*/*/msp
+ca/*/*/*.db
+ca/*/*/*Key
+ca/*/*/*.pem
+# Others
 downloads/
 ledger/
+/ca/org1.example.com/ca-cert.pem
+/ca/org1.example.com/fabric-ca-server.db
+/ca/org1.example.com/tls-cert.pem
+/.idea/
+/ca/org2.example.com/ca-cert.pem
+/ca/org2.example.com/fabric-ca-server.db
+/ca/org2.example.com/tls-cert.pem
